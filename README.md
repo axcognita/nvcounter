@@ -22,5 +22,11 @@ This requires connecting a Git repo (Amplify SSR cannot be deployed as a manual 
 ### Notes
 
 - The UI posts to `/api/analyze` with multipart form-data.
-- The API route reads the file server-side, base64-encodes it, and POSTs JSON to your Lambda URL.
+- The API route now uploads the file to S3 (public-read) and calls your Lambda Function URL with `{ fileUrl, Model }`.
+- Configure env vars:
+  - `NVCOUNTER_URL` – your Lambda Function URL
+  - `S3_BUCKET` – target bucket name
+  - `S3_PREFIX` – optional key prefix (e.g., `uploads/`)
+  - `AWS_REGION` – e.g., `eu-west-2`
+- Provide AWS credentials to the runtime via Amplify/role or env vars. Do NOT commit secrets.
 - No CORS issues since it’s server-to-server.
