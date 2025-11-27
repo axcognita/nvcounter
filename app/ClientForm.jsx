@@ -46,7 +46,7 @@ export default function ClientForm({ lambdaUrl }) {
           />
         </label>
         <label style={{ display:'block', marginTop:12, color:'#888' }}>Модел
-          <select value={model} onChange={e=>setModel(e.target.value)} disabled
+          <select value={model} onChange={e=>setModel(e.target.value)}
                   style={{ background:'#f2f2f2', color:'#888', borderColor:'#ddd' }}>
             <option value="AWS Textract">AWS Textract</option>
             <option value="gpt-4o">gpt-4o</option>
