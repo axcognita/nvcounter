@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function Page() {
-  const [endpoint, setEndpoint] = useState("");
+  const [endpoint, setEndpoint] = useState(process.env.NEXT_PUBLIC_NVCOUNTER_URL || "");
   const [model, setModel] = useState("gpt-4o");
   const [file, setFile] = useState(null);
   const [options, setOptions] = useState({
@@ -23,16 +23,6 @@ export default function Page() {
   const [charCount, setCharCount] = useState(0);
   const [charCountNoSpaces, setCharCountNoSpaces] = useState(0);
   const [elapsedSeconds, setElapsedSeconds] = useState(0);
-
-  useEffect(() => {
-    try {
-      if (typeof process !== "undefined" && process.env?.NVCOUNTER_URL) {
-        setEndpoint(process.env.NVCOUNTER_URL);
-      }
-    } catch {
-      // ignore if not available on client
-    }
-  }, []);
 
   const submit = async (e) => {
     e.preventDefault();
