@@ -1,4 +1,4 @@
-export const metadata = { title: 'Тестови брояч на символи (анализ)' };
+export const metadata = { title: 'nvcounter Amplify tester' };
 
 export default function RootLayout({ children }) {
   return (
